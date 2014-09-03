@@ -13,6 +13,7 @@ public class LoginController2 {
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("views/account");
+		
 		return model;
 	}
 
