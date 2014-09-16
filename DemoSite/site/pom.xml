@@ -37,16 +37,21 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>8.1.5.v20120716</version>
 				<configuration>
+				
+				 
 					<webAppSourceDirectory>${webappDirectory}</webAppSourceDirectory>
 					<contextPath>/</contextPath>
-
+					<!-- 热部署开始 -
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+                    <reload>automatic</reload>
+                                               热部署结束  经测试不顶用-->
 					<!-- !!!!! WARNING !!!!!! -->
 					<!-- This configuration of Jetty is not as secure as it causes Sessions 
 						to use a java.util.Random vs. java.security.SecureRandom. This speeds up 
 						startup times locally but this should not be used in production -->
 					<jettyXml>jetty-server.xml</jettyXml>
 					<!-- !!!!! WARNING !!!!!! -->
-
+                  
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
 					<connectors>
