@@ -31,6 +31,13 @@ public class IndexWebController {
 		
 	}
 	
+	@RequestMapping(value="/d")
+	public ModelAndView detailsIndex(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView model = new ModelAndView();
+		model.setViewName("views/detailsIndex");
+		return model;
+		
+	}
 	
 	
 
