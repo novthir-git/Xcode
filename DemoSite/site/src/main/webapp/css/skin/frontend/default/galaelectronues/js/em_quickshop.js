@@ -45,7 +45,7 @@ jQuery(function ($) {
 	function _qsJnit() {
 		var selectorObj = arguments[0];
 		var listprod = $(selectorObj.itemClass);	// selector chon tat ca cac li chua san pham tren luoi
-		var mypath = 'quickshop/index/view/path/';
+		var mypath = ''; //弃用 贺哥威武var mypath = 'quickshop/index/view/path/'
 		var baseUrl = EM.QuickShop.BASE_URL + mypath;
 
 		var _qsHref = "<a id=\"em_quickshop_handler\" href=\"#\" style=\"visibility:hidden;position:absolute;top:0;left:0\"><span>"+EM.QuickShop.QS_TEXT+"</span></a>";
