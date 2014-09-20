@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletResponse;
  * The controller responsible for registering a customer
  */
 @Controller
-@RequestMapping("/register2")/***此处修改过 以前是register***/
+@RequestMapping("/register2")
 public class RegisterController extends BroadleafRegisterController {
     
     @RequestMapping(method=RequestMethod.GET)

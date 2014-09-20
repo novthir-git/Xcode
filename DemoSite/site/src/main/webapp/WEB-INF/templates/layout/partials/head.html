@@ -1,0 +1,282 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title th:unless="${pageTitle == 'TEMPLATE'}" th:text="${#strings.isEmpty(pageTitle) ? 'NovThir 在线教育平台' : pageTitle}"></title>
+<title th:if="${pageTitle == 'TEMPLATE'}" th:remove="tag">
+    <title th:inline="text" th:include="${templateName} :: title" />
+</title>
+<meta name="description" content="Default Description" />
+<meta name="keywords" content="Magento, Varien, E-commerce" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<link rel="icon" href="http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = 'http://demo.emthemes.com/gala-electronues/js/blank.html';
+    var BLANK_IMG = 'http://demo.emthemes.com/gala-electronues/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+var ADAPT_CONFIG = {
+  path: "http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/css/",
+  dynamic: true,
+  range: [
+    '0px    to 760px  = mobile.css',
+    '760px  to 980px  = 720.css',
+    '980px  to 1200px = 960.css',
+    '1200px = 1200.css'
+    // '1600px to 1920px = 1560.css',
+    // '1940px to 2540px = 1920.css',
+    // '2540px           = 2520.css'
+  ]
+};
+</script>
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/css/styles.css" th:href="@{/css/skin/frontend/default/galaelectronues/css/styles.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/css/js-video.css" th:href="@{/css/skin/frontend/default/galaelectronues/css/js-video.css}"  media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/css/widgets.css"  th:href="@{/css/skin/frontend/base/default/css/widgets.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/css/em_cloudzoom.css" th:href="@{/css/skin/frontend/base/default/css/em_cloudzoom.css}"  media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/css/em_variation.css" th:href="@{/css/skin/frontend/default/galaelectronues/css/em_variation.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/css/selectUl.css" th:href="@{/css/skin/frontend/default/galaelectronues/css/selectUl.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/css/em_quickshop.css" th:href="@{/css/skin/frontend/base/default/css/em_quickshop.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/sliderwidget/jcarousel.css" th:href="@{/css/skin/frontend/default/galaelectronues/sliderwidget/jcarousel.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/slideshowwidget/css/nivo.css" th:href="@{/css/skin/frontend/base/default/slideshowwidget/css/nivo.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/css/lightbox.css" th:href="@{/css/skin/frontend/default/galaelectronues/css/lightbox.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/css/em_ajaxcart/em_ajaxcart.css" th:href="@{/css/skin/frontend/base/default/css/em_ajaxcart/em_ajaxcart.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/em_megamenupro/css/menu.css"  th:href="@{css/skin/frontend/default/galaelectronues/em_megamenupro/css/menu.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/css/em_productlabels.css"  th:href="@{/css/skin/frontend/base/default/css/em_productlabels.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/css/fancybox/jquery.fancybox.css" th:href="@{/css/skin/frontend/base/default/css/fancybox/jquery.fancybox.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/base/default/emtabs/css/emtabs.css" th:href="@{/css/skin/frontend/base/default/emtabs/css/emtabs.css}" media="all" />
+<link rel="stylesheet" type="text/css" href="css/skin/frontend/default/galaelectronues/css/print.css"  th:href="@{/css/skin/frontend/default/galaelectronues/css/print.css}" media="print" />
+<script type="text/javascript" src="js/prototype/prototype.js" th:src="@{/js/prototype/prototype.js}" ></script>
+<script type="text/javascript" src="js/lib/ccard.js" th:src="@{/js/lib/ccard.js}"></script>
+<script type="text/javascript" src="js/prototype/validation.js" th:src="@{/js/prototype/validation.js}"></script>
+<script type="text/javascript" src="js/scriptaculous/builder.js" th:src="@{/js/scriptaculous/builder.js}"> </script>
+<script type="text/javascript" src="js/scriptaculous/effects.js" th:src="@{/js/scriptaculous/effects.js}"></script>
+<script type="text/javascript" src="js/scriptaculous/dragdrop.js" th:src="@{/js/scriptaculous/dragdrop.js}"></script>
+<script type="text/javascript" src="js/scriptaculous/controls.js" th:src="@{/js/scriptaculous/controls.js}"></script>
+<script type="text/javascript" src="js/scriptaculous/slider.js" th:src="@{/js/scriptaculous/slider.js}"></script>
+<script type="text/javascript" src="js/varien/js.js" th:src="@{/js/varien/js.js}"></script>
+<script type="text/javascript" src="js/varien/form.js" th:src="@{/js/varien/form.js}"></script>
+<script type="text/javascript" src="js/varien/menu.js" th:src="@{/js/varien/menu.js}"></script>
+<script type="text/javascript" src="js/mage/translate.js" th:src="@{/js/mage/translate.js}"></script>
+<script type="text/javascript" src="js/mage/cookies.js" th:src="@{/js/mage/cookies.js}"></script>
+<script type="text/javascript" src="js/em/jquery-1.8.3.min.js" th:src="@{/js/em/jquery-1.8.3.min.js}"></script>
+<script type="text/javascript" src="js/em/jquery.hoverIntent.js" th:src="@{/js/em/jquery.hoverIntent.js}"></script>
+<script type="text/javascript" src="js/em/cloud-zoom.1.0.2.js" th:src="@{/js/em/cloud-zoom.1.0.2.js}"></script>
+<script type="text/javascript" src="js/em/jquery.ba-hashchange.min.js" th:src="@{/js/em/jquery.ba-hashchange.min.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/colorpicker.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/colorpicker.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/ios-orientationchange-fix.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/ios-orientationchange-fix.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/variation.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/variation.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/selectUl.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/selectUl.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/galaelectronues.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/galaelectronues.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/adapt.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/adapt.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/lightbox.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/lightbox.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/base/default/js/em_ajaxcart/jquery.form.js" th:src="@{/css/skin/frontend/base/default/js/em_ajaxcart/jquery.form.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/em_ajaxcart/lightbox.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/em_ajaxcart/lightbox.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/em_ajaxcart/em_ajaxcart.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/em_ajaxcart/em_ajaxcart.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/em_megamenupro/js/menu.js" th:src="@{/css/skin/frontend/default/galaelectronues/em_megamenupro/js/menu.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/base/default/js/fancybox/jquery.fancybox.js" th:src="@{/css/skin/frontend/base/default/js/fancybox/jquery.fancybox.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/base/default/js/fancybox/jquery.mousewheel-3.0.6.pack.js" th:src="@{/css/skin/frontend/base/default/js/fancybox/jquery.mousewheel-3.0.6.pack.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/default/galaelectronues/js/em_quickshop.js" th:src="@{/css/skin/frontend/default/galaelectronues/js/em_quickshop.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/base/default/js/jquery.jcarousel.js" th:src="@{/css/skin/frontend/base/default/js/jquery.jcarousel.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/base/default/js/jquery.touchwipe.1.1.1.js" th:src="@{/css/skin/frontend/base/default/js/jquery.touchwipe.1.1.1.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/base/default/slideshowwidget/js/jquery.nivo.slider.js" th:src="@{/css/skin/frontend/base/default/slideshowwidget/js/jquery.nivo.slider.js}"></script>
+<script type="text/javascript" src="css/skin/frontend/base/default/emtabs/js/emtabs.js" th:src="@{/css/skin/frontend/base/default/emtabs/js/emtabs.js}"></script>
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/css/styles-ie.css" media="all" />
+<script type="text/javascript" src="http://demo.emthemes.com/gala-electronues/skin/frontend/base/default/em_megamenupro/js/ie7.js"></script>
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="http://demo.emthemes.com/gala-electronues/js/lib/ds-sleight.js"></script>
+<script type="text/javascript" src="http://demo.emthemes.com/gala-electronues/skin/frontend/base/default/js/ie6.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+//<![CDATA[
+Mage.Cookies.path     = '/gala-electronues';
+Mage.Cookies.domain   = '.demo.emthemes.com';
+//]]>
+</script>
+<link rel="stylesheet" id="emcssvariation" type="text/css" href="http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/css/theme.css.php?general_color=&amp;primary_color=&amp;secondary_color=&amp;secondary2_color=&amp;secondary3_color=&amp;negative_color=&amp;line_color=&amp;secondary_line_color=&amp;primary_bgcolor=&amp;secondary_bgcolor=&amp;page_bg_image=&amp;general_font=12px%2F1.35+Arial%2C+Helvetica%2C+sans-serif&amp;h1_font=normal+22px%2F1.15+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h2_font=normal+20px%2F1.25+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h3_font=normal+18px%2F1.25+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h4_font=normal+16px%2F1.35+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h5_font=normal+14px%2F1.35+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h6_font=normal+12px%2F1.35+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;box_shadow=&amp;rounded_corner=&amp;additional_css_file=&amp;button1=&amp;button2=&amp;button3=&amp;button4="></link>
+<!--[if lt IE 9]>
+<script type="text/javascript">
+(function() {
+	var el = document.getElementById('emcssvariation');
+	el.parentNode.removeChild(el);
+})();
+</script>
+<link rel="stylesheet" id="emcssvariation" type="text/css" href="http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/css/theme.css.php?ie=1&general_color=&amp;primary_color=&amp;secondary_color=&amp;secondary2_color=&amp;secondary3_color=&amp;negative_color=&amp;line_color=&amp;secondary_line_color=&amp;primary_bgcolor=&amp;secondary_bgcolor=&amp;page_bg_image=&amp;general_font=12px%2F1.35+Arial%2C+Helvetica%2C+sans-serif&amp;h1_font=normal+22px%2F1.15+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h2_font=normal+20px%2F1.25+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h3_font=normal+18px%2F1.25+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h4_font=normal+16px%2F1.35+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h5_font=normal+14px%2F1.35+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;h6_font=normal+12px%2F1.35+%22Droid+Sans%22%2Chelvetica%2Carial%2Csans-serif&amp;box_shadow=&amp;rounded_corner=&amp;additional_css_file=&amp;button1=&amp;button2=&amp;button3=&amp;button4="></link>
+<![endif]-->
+
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: ["Droid Sans"] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+
+<script type="text/javascript">
+EM_Theme.PRODUCTSGRID_ITEM_WIDTH = 235; 
+EM_Theme.PRODUCTSGRID_ITEM_SPACING = 40;
+EM_Theme.CROSSSELL_ITEM_WIDTH = 250;
+EM_Theme.CROSSSELL_ITEM_SPACING = 90;
+EM_Theme.UPSELL_ITEM_WIDTH = 196;
+EM_Theme.UPSELL_ITEM_SPACING = 90;
+EM_Theme.AJAXCART_AUTOCLOSE = 1;
+</script>
+
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+//<![CDATA[
+var urlSkinsite = 'http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/';
+LightboxOptions = Object.extend({
+    fileLoadingImage:        urlSkinsite+'images/loading.gif',     
+    fileBottomNavCloseImage: urlSkinsite+'images/closelabel.png',
+
+    overlayOpacity: 0.8,   // controls transparency of shadow overlay
+
+    animate: true,         // toggles resizing animations
+    resizeSpeed: 7,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
+
+    borderSize: 10,         //if you adjust the padding in the CSS, you will need to update this variable
+
+	// When grouping images this is used to write: Image # of #.
+	// Change it for non-english localization
+	labelImage: "Image",
+	labelOf: "of"
+}, window.LightboxOptions || {});
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = ["HK","IE","MO","PA"];
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+		
+	if (typeof EM == 'undefined') EM = {};
+	EM.QuickShop = {
+		BASE_URL : '/d',
+		QS_FRM_TYPE : 1,
+		QS_FRM_WIDTH : 960,
+		QS_FRM_HEIGHT : 650,
+		QS_TEXT: '查看详情',
+		QS_BTN_WIDTH : 96,
+		QS_BTN_HEIGHT : 25
+	};
+	if(EM.QuickShop.QS_FRM_TYPE == 0 ){
+		EM.QuickShop.QS_FRM_WIDTH = EM.QuickShop.QS_FRM_WIDTH + "%";
+		EM.QuickShop.QS_FRM_HEIGHT = EM.QuickShop.QS_FRM_HEIGHT + "%";
+	}
+
+//]]	
+</script> 
+<script type="text/javascript">//<![CDATA[
+        var Translator = new Translate([]);
+        //]]></script><!-- Facebook Conversion Code for Themes -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6016096938024', {'value':'0.00','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6016096938024&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<script type="text/javascript">
+if(typeof(jQuery) != 'undefined'){
+    jQuery(function($) {         
+      // Link Cart
+       $('#topcartlink')
+       .bind('mouseover', showCart)
+       .bind('click', showCart)
+       .bind('mouseout', hideCart);
+      // Cart Content
+       $('#top_cart')
+       .bind('mouseover', showCart)
+       .bind('click', showCart)
+       .bind('mouseout', hideCart);     
+      // Hide Cart
+      var timeout = null;
+    function hideCart() {
+      if (timeout)
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
+      timeout = null;
+      $('#top_cart').slideUp();
+      $('#topcartlink').removeClass('over');
+      }, 200);
+    }
+      // Show Cart
+    function showCart() {    
+      if (timeout)
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
+      timeout = null;
+      $('#top_cart').slideDown();
+      $('#topcartlink').addClass('over');
+      }, 200);
+    }
+      var timeoutremove = null;
+    function hideCartRemove() {
+      if (timeoutremove)
+      clearTimeout(timeoutremove);
+      timeoutremove = setTimeout(function() {
+      timeoutremove = null;
+      $('#top_cart').slideUp();
+      $('#topcartlink').removeClass('over');
+      }, 200);
+    }
+      // Link Login   
+       $('#login-link')
+       .bind('mouseover', showAccount)
+       .bind('click', showAccount)
+       .bind('mouseout', hideAccount);
+      // form login
+       $('#login-form-header')
+       .bind('mouseover', showAccount)
+       .bind('click', showAccount)
+       .bind('mouseout', hideAccount);
+      // Hide Login link
+      var timeoutaccount = null;
+    function hideAccount() {
+      if (timeoutaccount)
+      clearTimeout(timeoutaccount);
+      timeoutaccount = setTimeout(function() {
+      timeoutaccount = null;
+      $('#login-form-header').slideUp();
+      $('#login-link').removeClass('over');
+      }, 200);
+    }
+      // Show login form
+    function showAccount() {        
+      if (timeoutaccount)
+      clearTimeout(timeoutaccount);
+      timeoutaccount = setTimeout(function() {
+      timeoutaccount = null;
+      $('#login-form-header').slideDown();
+      $('#login-link').addClass('over');
+      }, 200);
+    } 
+  });
+}
+</script>
