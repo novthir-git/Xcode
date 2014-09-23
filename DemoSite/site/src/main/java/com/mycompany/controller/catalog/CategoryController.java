@@ -32,7 +32,8 @@ public class CategoryController extends BroadleafCategoryController {
     
     @Override
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return super.handleRequest(request, response);
+        System.out.println("category.......");
+    	return super.handleRequest(request, response);
     }
 
 }

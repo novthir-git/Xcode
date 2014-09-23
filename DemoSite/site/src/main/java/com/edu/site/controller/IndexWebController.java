@@ -23,7 +23,6 @@ public class IndexWebController {
 		
 	}
 	
-	@RequestMapping(value="/sh")
 	public ModelAndView serarchIndex(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("views/searchIndex");

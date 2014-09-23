@@ -1,6 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<body class=" cms-index-index cms-galaelectronues-home">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head th:include="/layout/partials/head (pageTitle=${category.name + ' - Broadleaf Demo - Heat Clinic'})"></head>
+<body class=" cms-index-index cms-galaelectronues-home"> 
 <div class="wrapper">
         <noscript>
         <div class="global-site-notice noscript">
@@ -109,15 +113,14 @@
 		
 		
 	<div class="widget em-widget-featured-products-grid">
-		<div class="widget-products">
-			<ul id="products" class="group">
-            	<li th:each="product : ${products}" th:object="${product}" th:include="catalog/partials/productListItem" class="product_container"></li>
+		<div class="widget-products" th:object="${category}">
+			<ul  class="products-grid last even">
+				 <blc:related_products categoryId="*{id}" quantity="3"/>     
+                   <ul  class="item first">
+                      <li th:each="product : ${products}" th:object="${product}" th:include="catalog/partials/productListItem" class="product_container"></li>
+                   </ul>
        		 </ul>
-			<ul class="products-grid last even">
-				<li class="item first" style="  ">
-					
-					</li>
-				</ul>
+			
 			</div>
 			</div>
 </div>
