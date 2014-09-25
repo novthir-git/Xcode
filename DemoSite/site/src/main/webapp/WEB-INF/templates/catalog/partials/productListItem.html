@@ -1,49 +1,68 @@
-<div th:if="*{featuredProduct}" class="new_badge">New!</div>
-
-<div class="image">
-    <a th:href="@{*{url}}">
-    <img th:if="*{media['primary']}" th:src="@{*{media['primary'].url} + '?browse'}" th:alt="*{name}" />
-    <div class="price" th:if="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
-        <div blc:price="*{salePrice}" th:if="*{onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></div>
-        <div blc:price="*{retailPrice}" th:classappend="*{onSale}? 'has-sale'"></div>
-    </div>
-    <div class="price" th:unless="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
-        <div blc:price="*{defaultSku.salePrice}" th:if="*{defaultSku.onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></div>
-        <div blc:price="*{defaultSku.retailPrice}" th:classappend="*{defaultSku.onSale}? 'has-sale'"></div>
-    </div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"  th:remove="all" /> 
+<li class="item jcarousel-item jcarousel-item-horizontal jcarousel-item-4 jcarousel-item-4-horizontal"
+style="width: 157px; height: 265px; margin-right: 60px; margin-bottom: 60px; float: left; list-style: none;"
+jcarouselindex="4">
+    <a href="http://demo.emthemes.com/gala-electronues/index.php/30-flat-panel-tft-lcd-cinema-hd-monitor.html"
+    title="30&quot; Flat-Panel TFT-LCD Cinema HD Monitor" class="product-image">
+        <!--show label product - label extension is required-->
+        <ul  th:if="*{featuredProduct}"  class="productlabels_icons">
+            <li class="label ">
+                <p>
+                    New
+                </p>
+            </li>
+        </ul>
+        <img th:if="*{media['primary']}" th:src="@{*{media['primary'].url} + '?browse'}" style="width: 100%;" rel="thumbnail" th:alt="*{name}" />
     </a>
-</div>
-
-<div class="content">
-    <div class="title" th:text="*{name}"></div>
-    <p th:utext="*{longDescription}"></p>
-</div>
-
-<div th:class="*{'productActions productActions' + id}"
-     th:with="checkInventory=*{defaultSku.inventoryType?.type == 'CHECK_QUANTITY'},
-              availableInventory=${checkInventory ? #object.defaultSku.quantityAvailable != null and #object.defaultSku.quantityAvailable != 0 : true},
-              inCart=${cart.containsSku(#object.defaultSku) and #lists.isEmpty(product.productOptions)}">
-
-    <div th:if="${checkInventory and !availableInventory}" class="out_of_stock">
-        <a disabled="disabled" class="inCart">Out of Stock</a>
+    <div class="product-shop">
+        <div class="f-fix">
+            <!--product name-->
+            <h3 class="product-name">
+                <a th:href="@{*{url}}" th:text="*{name}" th:title="@{*{name}}"> </a>
+            </h3>
+            <p class="sku">
+                M9179LL
+            </p>
+            <!--product description-->
+            <!--product reviews-->
+            <!--product price-->
+            <div class="price-box" th:if="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
+                <span class="regular-price" id="product-price-157-widget-new-list">
+                 <p class="old-price">
+                	 <span class="price" blc:price="*{salePrice}" th:if="*{onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></span>
+               		</p>
+            			<span class="price" blc:price="*{retailPrice}" th:classappend="*{onSale}? 'has-sale'"></span>
+         		   	
+                </span>
+            </div>
+            <div class="price-box" th:unless="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
+                <span class="regular-price" id="product-price-157-widget-new-list">
+                	  <p class="old-price">
+                		 <span class="price" blc:price="*{defaultSku.salePrice}" th:if="*{defaultSku.onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></span>
+                	  </p>
+                	  <span class="price" blc:price="*{defaultSku.retailPrice}" th:classappend="*{defaultSku.onSale}? 'has-sale'"></span>
+                </span>
+            </div>
+           
+            <!--product add to cart-->
+            <!--product add to compare-wishlist-->
+            <ul class="add-to-links">
+                <li>
+                    <a href="http://demo.emthemes.com/gala-electronues/index.php/wishlist/index/add/product/157/form_key/Yd4xKSbHITAuSNsU/"
+                    class="link-wishlist" title="Wishlist">
+                        	学生
+                    </a>
+                </li>
+                <li>
+                    <span class="separator">
+                        |
+                    </span>
+                    <a href="http://demo.emthemes.com/gala-electronues/index.php/catalog/product_compare/add/product/157/uenc/aHR0cDovL2RlbW8uZW10aGVtZXMuY29tOjgwMDAvZ2FsYS1lbGVjdHJvbnVlcy8,/form_key/Yd4xKSbHITAuSNsU/"
+                    class="link-compare" title="Compare">
+                        2131
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="in_cart" th:classappend="${!inCart}? ' hidden'" th:if="${#lists.isEmpty(product.productOptions)}">
-        <a class="modalcart inCart" th:href="@{/cart}"><span th:text="#{product.inCart}">In Cart!</span></a>
-    </div>
-
-    <div class="add_to_cart" th:classappend="${inCart or !availableInventory}? ' hidden'">
-        <blc:form method="POST" th:action="@{/cart/add}">
-            <input type="hidden" name="productId" th:value="*{id}" />
-            <input type="hidden" name="quantity" value="1" />
-            <input type="hidden" name="hasProductOptions" th:value="*{!#lists.isEmpty(productOptions)}" />
-            <input type="submit" class="addToCart" th:value="#{product.buyNow}"/>
-        </blc:form>
-    </div>
-
-</div>
-
-<div style="display: none;" th:id="*{'productOptions' + id}" class="product-options modal">
-    <h3 th:text="*{name}"></h3>
-    <div class="product-options" th:substituteby="catalog/partials/productOptions"/>
-    <input type="button" class="addToCart" th:value="#{product.buyNow}" />
-</div>
+</li>

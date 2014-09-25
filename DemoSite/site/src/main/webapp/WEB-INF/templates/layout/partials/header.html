@@ -122,8 +122,13 @@
         //]]>
         </script> 
        </div> 
+    	<blc:categories resultVar="navCategories" parentCategory="Primary Nav" maxResults="60" />
        <div class="input_cat"> 
-        <select name="cat" class="cat-search .input_cat" style="display: none;"> <option value="0">—– 所有分类</option><option value="10">—–—– Furniture</option><option value="22">—–—–—– Living Room</option><option value="23">—–—–—– Bedroom</option><option value="13">—–—– Electronics</option><option value="8">—–—–—– Cell Phones</option><option value="12">—–—–—– Cameras</option><option value="25">—–—–—–—– Accessories</option><option value="26">—–—–—–—– Digital Cameras</option><option value="15">—–—–—– Computers</option><option value="27">—–—–—–—– Build Your Own</option><option value="28">—–—–—–—– Laptops</option><option value="29">—–—–—–—– Hard Drives</option><option value="30">—–—–—–—– Monitors</option><option value="31">—–—–—–—– RAM / Memory</option><option value="32">—–—–—–—– Cases</option><option value="33">—–—–—–—– Processors</option><option value="34">—–—–—–—– Peripherals</option><option value="18">—–—– Apparel</option><option value="4">—–—–—– Shirts</option><option value="5">—–—–—– Shoes</option><option value="16">—–—–—–—– Mens</option><option value="17">—–—–—–—– Womens</option><option value="19">—–—–—– Hoodies</option><option value="24">—–—–—– Pants</option><option value="20">—–—– Household Items</option> </select>
+       	
+        <select name="cat" class="cat-search .input_cat" style="display: none;"> 
+        	<option value="0">—– 所有分类</option>
+        		<option th:each="category : ${navCategories}" th:unless="${#strings.isEmpty(category.url)}" value="@{${category.url}}"  th:text="${category.name}"></option>
+        	</select>
        </div> 
       </div> 
      </form>
