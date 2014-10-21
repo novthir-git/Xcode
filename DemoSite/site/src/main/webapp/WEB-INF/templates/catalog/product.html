@@ -1,590 +1,249 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head th:include="/layout/partials/head (pageTitle='Search - Broadleaf Demo - Heat Clinic')"></head>
- <body class="catalog-product-view adapt-3">
-  <script type="text/javascript">
-	if (typeof (jQuery) != 'undefined') {
-		jQuery(function($) {
-			// Link Cart
-			$('#topcartlink').bind('mouseover', showCart).bind('click',
-					showCart).bind('mouseout', hideCart);
-			// Cart Content
-			$('#top_cart').bind('mouseover', showCart).bind('click', showCart)
-					.bind('mouseout', hideCart);
-			// Hide Cart
-			var timeout = null;
-			function hideCart() {
-				if (timeout)
-					clearTimeout(timeout);
-				timeout = setTimeout(function() {
-					timeout = null;
-					$('#top_cart').slideUp();
-					$('#topcartlink').removeClass('over');
-				}, 200);
-			}
-			// Show Cart
-			function showCart() {
-				if (timeout)
-					clearTimeout(timeout);
-				timeout = setTimeout(function() {
-					timeout = null;
-					$('#top_cart').slideDown();
-					$('#topcartlink').addClass('over');
-				}, 200);
-			}
-			var timeoutremove = null;
-			function hideCartRemove() {
-				if (timeoutremove)
-					clearTimeout(timeoutremove);
-				timeoutremove = setTimeout(function() {
-					timeoutremove = null;
-					$('#top_cart').slideUp();
-					$('#topcartlink').removeClass('over');
-				}, 200);
-			}
-			// Link Login   
-			$('#login-link').bind('mouseover', showAccount).bind('click',
-					showAccount).bind('mouseout', hideAccount);
-			// form login
-			$('#login-form-header').bind('mouseover', showAccount).bind(
-					'click', showAccount).bind('mouseout', hideAccount);
-			// Hide Login link
-			var timeoutaccount = null;
-			function hideAccount() {
-				if (timeoutaccount)
-					clearTimeout(timeoutaccount);
-				timeoutaccount = setTimeout(function() {
-					timeoutaccount = null;
-					$('#login-form-header').slideUp();
-					$('#login-link').removeClass('over');
-				}, 200);
-			}
-			// Show login form
-			function showAccount() {
-				if (timeoutaccount)
-					clearTimeout(timeoutaccount);
-				timeoutaccount = setTimeout(function() {
-					timeoutaccount = null;
-					$('#login-form-header').slideDown();
-					$('#login-link').addClass('over');
-				}, 200);
-			}
-		});
-	}
-</script>   
-  <div class="wrapper"> 
-   <noscript> 
-    <div class="global-site-notice noscript"> 
-     <div class="notice-inner"> 
-      <p> <strong>JavaScript seems to be disabled in your browser.</strong><br /> You must have JavaScript enabled in your browser to utilize the functionality of this website. </p> 
-     </div> 
-    </div> 
-   </noscript> 
-   <div class="page"> 
-   	<header th:substituteby="layout/partials/header" /> 
-    <div class="container_24 "> 
-     <div class="grid_6"> 
-      <script type="text/javascript">
-						jQuery(function($) {
-							var container = $("#toggleTextMenu");
-							$("#displayTextMenu").click(
-									function(event) {
-										event.preventDefault();
-										if (container.is(":visible")) {
-											container.slideUp(1000);
-											$("#displayTextMenu").removeClass(
-													'hidden-arrow');
-											$("#displayTextMenu").attr('title',
-													'show menu')
 
-										} else {
-											container.slideDown(1000);
-											$("#displayTextMenu").toggleClass(
-													'hidden-arrow');
-											$("#displayTextMenu").attr('title',
-													'hide menu');
-										}
-									});
-						});
-					</script> 
-      <div id="hidden-menu" class="menu-hidden-desktop" style="display: none;"> 
-       <a class="option" id="displayTextMenu" href="#" title="show menu" style=""><span>Navigation</span></a> 
-       <div id="toggleTextMenu" style="display: none;"> 
-        <div class="menu-resize-inner"> 
-         <div class="menu-resize-inner-content"></div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="menu-wrapper"> 
-       <script type="text/javascript">
-							jQuery(function($) {
-								var container = $("#menu-default");
-								var isMobile = /iPhone|iPod|iPad|Phone|Mobile|Android|hpwos/i
-										.test(navigator.userAgent);
+<head th:include="/layout/partials/head (pageTitle=${product.name + '- Broadleaf Demo - Heat Clinic'})"></head>
 
-								if (!isMobile) {
-									if (!($("body").hasClass("cms-index-index"))) {
-										$(".menu-wrapper")
-												.hover(
-														/*function( event ){
-														    event.preventDefault();
-														    if (container.is( ":visible" )){
-														        container.slideUp(200);
-														        $("#menuleftText").removeClass('hidden-arrow');
-														        $("#menuleftText").attr('title', 'show-option');
-														    } else {
-														        container.slideDown(200);
-														        $("#menuleftText").toggleClass('hidden-arrow');
-														        $("#menuleftText").attr('title', 'hide-option');                
-														    }
-														}*/
-														function() {
-															container
-																	.fadeIn(500);
-															$("#menuleftText")
-																	.toggleClass(
-																			'hidden-arrow');
-															$("#menuleftText")
-																	.attr(
-																			'title',
-																			'hide-option');
-														},
-														function() {
-															container
-																	.fadeOut(100);
-															$("#menuleftText")
-																	.removeClass(
-																			'hidden-arrow');
-															$("#menuleftText")
-																	.attr(
-																			'title',
-																			'show-option');
-														});
-									}
-								} else {
-									$("#menuleftText")
-											.click(
-													function(event) {
-														event.preventDefault();
-														if (container
-																.is(":visible")) {
-															container.hide();
-															$("#menuleftText")
-																	.removeClass(
-																			'hidden-arrow');
-															$("#menuleftText")
-																	.attr(
-																			'title',
-																			'show-option');
+<body>
+    <div id="notification_bar"></div>
+    <header th:substituteby="layout/partials/header" />
 
-														} else {
-															container.show();
-															$("#menuleftText")
-																	.toggleClass(
-																			'hidden-arrow');
-															$("#menuleftText")
-																	.attr(
-																			'title',
-																			'hide-option');
-														}
-													});
-								}
-							});
-						</script> 
-       
-       <header th:substituteby="layout/partials/categories" /> 
-      </div> 
-     </div> 
-     <div class="grid_24" th:object="${product}"> 
-      <div class="breadcrumbs"> 
-       <ul> 
-        <li class="home"><a href="#" title="Go to Home Page">Home</a> <span>/////</span></li> 
-        <li class="product"><strong th:text="*{name}"></strong></li> 
-       </ul> 
-      </div> 
-     </div> 
-     <div class="clear"></div> 
-    </div> 
-    <div class="container_24" th:object="${product}" >
-    	<div class="grid_18 push_6 " style="margin-bottom: 18px;">
-    		<form action="#" method="post" id="product_addtocart_form"> 
-    		<div class="product-shop" style="margin-left:0px"> 
-	          <div class="product-name"> 
-	           <h1 th:text="*{name}"></h1> 
-	          </div> 
-	          <div class="widget widget-static-block "> 
-	           <div class="box" style="background-color: #f8fcc5;"> 
-	            <p th:utext="*{longDescription}"></p> 
-	           </div>
-	           	 <p class="availability in-stock"> Availability: <span>In stock</span> </p>  
-	           	  <div class="price-box"> 
-		           <span class="regular-price" id="product-price-156"> <span class="price">$399.99</span>  <button type="button" title="Add to Cart" class="button btn-cart" onclick="productAddToCartForm.submit(this)"> <span><span>Add to Cart</span></span> </button> </span> 
-		          </div> 
-	          </div> 
-       	   </div> 
-       	   </form>
-    	</div>
-   		<div class="grid_6 pull_18" >
-   			 <div style="padding-top:18px;" th:if="*{media['primary']}">
-                <a th:href="@{*{#strings.replace(media['primary'].url + '?browse', 'jpg?browse', 'jpg')}}">
-                    <img  class="fluid" style="max-width: 280px; width: 100%;" th:src="@{*{media['primary'].url}+ '?browse'}" alt=''/>
+    <div id="content" class="width_setter group" role="main">
+    
+        <nav th:substituteby="layout/partials/nav" />
+        
+        <section id="left_column" th:object="${product}">
+        
+            <div id="product_content" class="product_container">
+                <h2 th:text="*{name}"></h2>
+                
+                <div id="maker" th:text="*{manufacturer}"></div>
+                
+                <div id="price" th:if="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
+                    <div blc:price="*{salePrice}" th:if="*{onSale}" th:classappend="*{onSale}? 'sale'"></div>
+                    <div blc:price="*{retailPrice}" th:classappend="*{onSale}? 'has-sale'"></div>
+                </div>
+                <div id="price" th:unless="${#object instanceof T(org.broadleafcommerce.core.catalog.domain.ProductBundle)}">
+                    <div blc:price="*{defaultSku.salePrice}" th:if="*{defaultSku.onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></div>
+                    <div blc:price="*{defaultSku.retailPrice}" th:classappend="*{defaultSku.onSale}? 'has-sale'"></div>
+                </div>
+                
+                <div class="product-options" th:substituteby="catalog/partials/productOptions"/>                                
+                
+                <th:block th:with="checkInventory=*{defaultSku.inventoryType?.type == 'CHECK_QUANTITY'},
+                                   availableInventory=${checkInventory ? #object.defaultSku.quantityAvailable != null and #object.defaultSku.quantityAvailable != 0 : true},
+                                   inCart=${cart.containsSku(#object.defaultSku) and #lists.isEmpty(product.productOptions)}">
+                    <blc:form method="POST" th:action="@{/cart/add}">
+                        <div class="product-option-nonjs" th:each="productOption : *{productOptions}" th:object="${productOption}">
+                            <div class="form50">
+                                <label th:text="*{label}"></label>
+                                <select th:name="${'itemAttributes[' + productOption.attributeName + ']'}">
+                                    <option th:each="optionValue : *{allowedValues}" th:object="${optionValue}" th:text="*{attributeValue}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div th:utext="*{longDescription}" id="description"></div>
+                        
+                        <div id="inventory" th:if="${checkInventory}">
+                            <b>Available inventory:</b> <span th:text="*{defaultSku.quantityAvailable == null ? '0' : defaultSku.quantityAvailable}" />
+                            <div th:if="${!availableInventory}" class="out_of_stock">
+                                <a disabled="disabled" class="big-button gray-button">Out of Stock</a>
+                            </div>
+                        </div>
+                        
+                        <div th:class="*{'productActions' + id}">
+                            <div class="in_cart" th:classappend="${!inCart}? ' hidden'">
+                                <a class="modalcart big-button gray-button" th:href="@{/cart}">In Cart!</a>
+                            </div>
+                            <div class="add_to_cart" th:classappend="${inCart or !availableInventory}? ' hidden'">
+                                <input type="hidden" name="productId" th:value="*{id}" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <input type="submit" class="addToCart big red" th:value="#{product.buyNow}"/>
+                            </div>
+                            <p class="error" th:if="${param.errorMessage}" th:text="${param.errorMessage[0]}"></p>
+                        </div>
+                    </blc:form>
+                </th:block>
+    
+                <div th:if="${customer.loggedIn}" th:remove="tag">
+
+                    <blc:form method="POST" th:action="@{/account/wishlist/add}">
+                        <div class="product-option-nonjs" th:each="productOption : *{productOptions}" th:object="${productOption}">
+                            <div class="form50">
+                                <label th:text="*{label}"></label>
+                                <select th:name="${'itemAttributes[' + productOption.attributeName + ']'}">
+                                    <option th:each="optionValue : *{allowedValues}" th:object="${optionValue}" th:text="*{attributeValue}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div th:class="${'productActions' + product.id}">
+
+                            <blc:named_order orderVar="wishlist" orderName="wishlist" />
+
+                            <div class="in_wishlist" th:classappend="${!wishlist.containsSku(product.defaultSku)}? ' hidden'">
+                                <a class="inWishlist small-button gray-button" th:href="@{/account/wishlist}">In Wishlist!</a>
+                            </div>
+                            <div class="add_to_wishlist" th:classappend="${wishlist.containsSku(product.defaultSku)}? ' hidden'">
+                                <input type="hidden" name="productId" th:value="*{id}" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <input type="submit" class="addToWishlist small dark" value="+ Add to Wishlist" />
+                            </div>
+                        </div>
+                    </blc:form>
+                </div>
+                    
+                <p>
+                    Share this Sauce:
+                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                        <a class="addthis_button_preferred_1"></a>
+                        <a class="addthis_button_preferred_2"></a>
+                        <a class="addthis_button_preferred_3"></a>
+                        <a class="addthis_button_preferred_4"></a>
+                        <a class="addthis_button_compact"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-5006d3e47d6ace5d"></script>
+                </p>
+                
+            </div>
+            
+            <div id="product_main_image" th:if="*{media['primary']}">
+                <a th:href="@{*{#strings.replace(media['primary'].url + '?browse', 'jpg?browse', 'jpg')}}" class='jqzoom' id='zoom1' rel="gal1">
+                    <img th:src="@{*{media['primary'].url}+ '?browse'}" alt='' align="left" id="main_image" />
                 </a>
             </div>
-   		</div>
-   		  <script type="text/javascript">
-			var optionsPrice = new Product.OptionsPrice([]);
-		</script> 
+            
+            <div id="product_thumbs_container">
+                <ul id="product_thumbs" class="clearfix">
+                    <li>
+                        <a th:if="*{media['primary']}" href="javascript:;" class="zoomThumbActive" th:rel="${'{ gallery: ''gal1'', smallimage: ''__@{*{media['primary'].url}+'?browse'}__'', largeimage: ''__@{*{media['primary'].url}}__'' }'}" th:attr="data-tags=*{media['primary'].tags}">
+                            <img th:src="@{*{media['primary'].url}}" alt="Bottle Closeup" />
+                        </a>
+                        <p th:if="*{#maps.size(media) > 1}" class="thumbs_nav">Swipe to see more... (<span th:text="'1 of ' + *{#maps.size(media) > 3 ? 3 : #maps.size(media)}"></span>)</p>
+                        
+                    </li>
+                    
+                    <li th:each="media, iterStat : *{media}" th:unless="${media.key == 'primary'}">
+                        <a href="javascript:;"
+                            th:rel="${'{ gallery: ''gal1'', smallimage: ''__@{${media.value.url}+'?browse'}__'', largeimage: ''__@{${media.value.url}}__'' }'}" th:attr="data-tags=${media.value.tags}">
+                            <img th:src="@{${media.value.url}}" alt="Bottle Closeup" />
+                        </a>
+                        <p class="thumbs_nav" th:text="${iterStat.count + 1} + ' of ' + *{#maps.size(media) > 3 ? 3 : #maps.size(media)}"></p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="clearfix"></div>
+                <div id="customer-reviews-container">
+                    <blc:ratings itemId="${product.id}" />
+                    <div th:if="${ratingSummary}" th:object="${ratingSummary}">
+                        <span class="title">Community Rating</span>
+                        <div id="community-rating-container">
+                            <blc:form id="community-rating" class="star-rating" th:attr="data-community-rating=*{averageRating}">
+                                <input type="radio" class="star {split:4}" /> 
+                                <input type="radio" class="star {split:4}" /> 
+                                <input type="radio" class="star {split:4}" /> 
+                                <input type="radio" class="star {split:4}" /> 
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                                <input type="radio" class="star {split:4}" />
+                            </blc:form>
+                            <br/>
+                            <div class="total-reviews">
+                                (<span th:text="*{numberOfReviews}"></span><span th:if="*{numberOfReviews} == 1"> review</span><span th:if="*{numberOfReviews} > 1"> reviews</span>)
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                            <blc:ratings itemId="${product.id}" />
+                            <div th:if="${currentCustomerReview}" th:object="${currentCustomerReview}" class="customer-reviews current-customer-review">
+                                <h4>Your Review</h4>
+                                <p class="voting-summary" th:if="*{notHelpfulCount()} + *{helpfulCount()} > 0">
+                                    <span th:text="*{helpfulCount()}">9</span> of 
+                                    <span th:text="*{notHelpfulCount()} + *{helpfulCount()}">10</span> found the following review helpful
+                                </p>
+                                <blc:form class="customer-rating" th:attr="data-customer-rating=*{ratingDetail.rating}">
+                                    <input type="radio" class="star" />
+                                    <input type="radio" class="star" />
+                                    <input type="radio" class="star"/>
+                                    <input type="radio" class="star" />
+                                    <input type="radio" class="star" />
+                                </blc:form>
+                                <span class="reviewer-info">
+                                    on <span th:text="*{#dates.format(reviewSubmittedDate, 'MMMM d, yyyy')}">1-2-2010</span>
+                                </span>
+                                <div class="clearfix"></div>
+                                <blockquote th:if="!*{#strings.isEmpty(reviewText)}" th:text="'&quot;' + *{reviewText} + '&quot;'">Review Text</blockquote>                         
+                            </div>
+                        <div class="helpful-reviews">
+                            <h4>Customer Reviews</h4>
+                            <ul class="customer-reviews">
+                                <li th:each="review, iterStat : *{reviews}" th:object="${review}" th:if="${iterStat.count} lt 4">
+                                    <p class="voting-summary" th:if="*{notHelpfulCount()} + *{helpfulCount()} > 0">
+                                        <span th:text="*{helpfulCount()}">9</span> of 
+                                        <span th:text="*{notHelpfulCount()} + *{helpfulCount()}">10</span> found the following review helpful
+                                    </p>
+                                    <blc:form class="customer-rating" th:attr="data-customer-rating=*{ratingDetail.rating}">
+                                        <input type="radio" class="star" />
+                                        <input type="radio" class="star" />
+                                        <input type="radio" class="star"/>
+                                        <input type="radio" class="star" />
+                                        <input type="radio" class="star" />
+                                    </blc:form>
+                                    <span class="reviewer-info">
+                                        by <span class="penname" th:text="${review.customer.firstName}">John</span> on  
+                                        <span th:text="*{#dates.format(reviewSubmittedDate, 'MMMM d, yyyy')}">1-2-2010</span>
+                                    </span>
+                                    <div class="clearfix"></div>
+                                    <blockquote th:if="!*{#strings.isEmpty(reviewText)}" th:text="'&quot;' + *{reviewText} + '&quot;'">Review Text</blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div th:if="${customer.loggedIn}">
+                        <div th:if="${ratingSummary}">
+                            <a th:unless="${currentCustomerReview}" class="create-review" th:href="@{'/reviews/product/' + ${product.id}}">Create a review</a> 
+                        </div>
+                        <div th:unless="${ratingSummary}">
+                            <a th:href="@{'/reviews/product/' + ${product.id}}" class="create-review">Be the first to write a review!</a>
+                        </div>
+                    </div>
+                    <div th:unless="${customer.loggedIn}">
+                        <a th:if="${ratingSummary}" href="#" th:href="@{/login}" class="small dark account">Login to create a review</a>
+                        <a th:unless="${ratingSummary}" th:href="@{/login}" class="account">Login and be the first to write a review!</a>
+                    </div>
+                </div>          
+        </section>
+    
+        <section id="right_column">
+            <header>Featured Products</header>
+            <div id="options">
+                <div class="section">
+                     <blc:related_products productId="${product.id}"/>   
+                    <ul id="featured_products" class="group">
+                        <li th:each="relatedProduct : ${relatedProducts}" th:object="${relatedProduct.relatedProduct}" th:include="catalog/partials/productListItem" class="product_container"></li>
+                    </ul>
+                </div>                                  
+            </div>
+        </section>              
     </div>
-     <div class="container_24 "> 
-     	<div class="grid_18 push_6 grid_content" style="padding-top:0px;">
-   			<div class="block block-poll">
-			    <div class="block-title">
-			        <strong><span>课程目录</span></strong>
-			    </div>
-			</div>
-			<table class="data-table" id="product-attribute-specs-table"> 
-		          <colgroup span="1">
-		           <col width="10%" span="1"/> 
-		           <col width="50%" span="1" /> 
-		           <col width="10%" span="1"/> 
-		           <col width="15%" span="1" /> 
-		           <col width="15%" span="1" /> 
-		          </colgroup>
-		          <tbody> 
-		           <tr class="first odd"> 
-		            <th class="label" rowspan="1" colspan="1">1</th> 
-		            <td class="data last" rowspan="1" colspan="1">课程1</td> 
-		            <td class="data last" rowspan="1" colspan="1">下载</td> 
-		            <td class="data last" rowspan="1" colspan="1">时长</td> 
-		            <td class="data last" rowspan="1" colspan="1">预览</td> 
-		           </tr> 
-		           <tr class="first odd"> 
-		            <th class="label" rowspan="1" colspan="1">1</th> 
-		            <td class="data last" rowspan="1" colspan="1">课程1</td> 
-		            <td class="data last" rowspan="1" colspan="1">下载</td> 
-		            <td class="data last" rowspan="1" colspan="1">时长</td> 
-		            <td class="data last" rowspan="1" colspan="1">预览</td> 
-		           </tr> 
-		            <tr class="first odd"> 
-		            <th class="label" rowspan="1" colspan="1">1</th> 
-		            <td class="data last" rowspan="1" colspan="1">课程1</td> 
-		            <td class="data last" rowspan="1" colspan="1">下载</td> 
-		            <td class="data last" rowspan="1" colspan="1">时长</td> 
-		            <td class="data last" rowspan="1" colspan="1">预览</td> 
-		           </tr> 
-		            <tr class="first odd"> 
-		            <th class="label" rowspan="1" colspan="1">1</th> 
-		            <td class="data last" rowspan="1" colspan="1">课程1</td> 
-		            <td class="data last" rowspan="1" colspan="1">下载</td> 
-		            <td class="data last" rowspan="1" colspan="1">时长</td> 
-		            <td class="data last" rowspan="1" colspan="1">预览</td> 
-		           </tr> 
-		          </tbody> 
-		         </table>
-     	</div>
-     	<div class="grid_6 pull_18">
-     		<div class="widget widget-static-block "> 
-		       <div class="box" style="background-color: #f8fcc5;"> 
-		        <p>Sample Block Here ...</p> 
-		        <p>这些 标签 内容 随便写 这些 标签 内容 随便写 这些 标签 内容 随便写 这些 标签 内容 随便写 这些 标签 内容 随便写 这些 标签 内容 随便写 </p> 
-		       </div> 
-		      </div>
-     		<div class="block block-list block-compare">
-			    <div class="block-title">
-			        <strong><span>讲师简介</span></strong>
-			    </div>
-			    <div class="block-content">
-		            <img class="fluid" src="http://demo.emthemes.com/gala-electronues/skin/frontend/default/galaelectronues/images/media/wysiwyg/banner-left.png" alt="" style="max-width: 280px; width: 100%;"></img>
-	        	</div>
-			</div>
-     	</div>
-     </div>
-    <div class="container_24 "> 
     
-     <div class="grid_24 push_24 grid_content"> 
+    <footer th:substituteby="layout/partials/footer" />
     
-      <div class="product-view"> 
-       <div class="product-essential"> 
-        
-         <div class="product-shop" style="margin-left:0px"> 
-          	<!-- d -->
-         </div> 
-         <div class="clearer"></div> 
-        <script type="text/javascript">
-								//<![CDATA[
-								var productAddToCartForm = new VarienForm(
-										'product_addtocart_form');
-								productAddToCartForm.submit = function(button,
-										url) {
-									if (this.validator.validate()) {
-										var form = this.form;
-										var oldUrl = form.action;
-
-										if (url) {
-											form.action = url;
-										}
-										var e = null;
-										try {
-											this.form.submit();
-										} catch (e) {
-										}
-										this.form.action = oldUrl;
-										if (e) {
-											throw e;
-										}
-
-										if (button && button != 'undefined') {
-											button.disabled = true;
-										}
-									}
-								}.bind(productAddToCartForm);
-
-								productAddToCartForm.submitLight = function(
-										button, url) {
-									if (this.validator) {
-										var nv = Validation.methods;
-										delete Validation.methods['required-entry'];
-										delete Validation.methods['validate-one-required'];
-										delete Validation.methods['validate-one-required-by-name'];
-										// Remove custom datetime validators
-										for ( var methodName in Validation.methods) {
-											if (methodName
-													.match(/^validate-datetime-.*/i)) {
-												delete Validation.methods[methodName];
-											}
-										}
-
-										if (this.validator.validate()) {
-											if (url) {
-												this.form.action = url;
-											}
-											this.form.submit();
-										}
-										Object.extend(Validation.methods, nv);
-									}
-								}.bind(productAddToCartForm);
-								//]]>
-							</script> 
-       </div> 
-       <div class="product-collateral"> 
-        <div class="box-collateral box-reviews tab-item content_box_collateral_0_0"> 
-	         <h2>评论</h2> 
-	        <dl>
-	        	<dt>
-	                <a href="http://demo.emthemes.com/gala-electronues/index.php/review/product/view/id/87/">
-	                <b>maosijun:</b></a> 
-	            </dt>
-	            <dd>
-                       <span style="padding-left:10px;">还可以啊，可以学习</span>             
-                </dd>
-	        </dl>
-	        <dl>
-	        	<dt>
-	                <a href="http://demo.emthemes.com/gala-electronues/index.php/review/product/view/id/87/">
-	                <b>maosijun:</b></a> 
-	            </dt>
-	            <dd>
-                       <span style="padding-left:10px;">还可以啊，可以学习</span>             
-                </dd>
-	        </dl>
-	        <dl>
-	        	<dt>
-	                <a href="http://demo.emthemes.com/gala-electronues/index.php/review/product/view/id/87/">
-	                <b>maosijun:</b></a> 
-	            </dt>
-	            <dd>
-                       <span style="padding-left:10px;">还可以啊，可以学习</span>             
-                </dd>
-	        </dl>
-	        
-	         <script type="text/javascript">
-				decorateTable(
-						'product-attribute-specs-table')
-			</script> 
-        </div> 
-        <div class="box-collateral box-reviews" id="customer-reviews"> 
-         <div class="form-add"> 
-          <h2>发表评论</h2> 
-          <form action="http://demo.emthemes.com/gala-electronues/index.php/review/product/post/id/156/" method="post" id="review-form"> 
-           <input name="form_key" type="hidden" value="G0nFPMrdBjLTW4rj" /> 
-           <fieldset> 
-            <h3> You're reviewing: <span>19&quot; Widescreen Flat-Panel LCD Monitor</span> </h3> 
-            <ul class="form-list"> 
-             <li><label for="nickname_field" class="required"><em>*</em>Nickname</label> 
-              <div class="input-box"> 
-               <input type="text" name="nickname" id="nickname_field" class="input-text required-entry" value="" /> 
-              </div></li> 
-             <li><label for="summary_field" class="required"><em>*</em>Summary of Your Review</label> 
-              <div class="input-box"> 
-               <input type="text" name="title" id="summary_field" class="input-text required-entry" value="" /> 
-              </div></li> 
-             <li><label for="review_field" class="required"><em>*</em>Review</label> 
-              <div class="input-box"> 
-               <textarea name="detail" id="review_field" cols="5" rows="3" class="required-entry"></textarea> 
-              </div></li> 
-            </ul> 
-           </fieldset> 
-           <h4> How do you rate this product? <em class="required">*</em> </h4> 
-           <span id="input-message-box"></span> 
-         
-           <input type="hidden" name="validate_rating" class="validate-rating" value="" /> 
-           <script type="text/javascript">
-											decorateTable('product-review-table')
-										</script> 
-           <div class="buttons-set"> 
-            <button type="submit" title="Submit Review" class="button"> <span><span>Submit Review</span></span> </button> 
-           </div> 
-          </form> 
-          <script type="text/javascript">
-			//<![CDATA[
-				var dataForm = new VarienForm( 'review-form');
-				Validation .addAllThese([ [ 'validate-rating', 'Please select one of each of the ratings above', function (v) 
-				{
-				    var trs = $( 'product-review-table') .select( 'tr');
-				    var inputs;
-				    var error = 1;
-				    for ( var j = 0; j < trs.length; j++) 
-				    {
-				        var tr = trs[j];
-				        if (j > 0) 
-				        {
-				            inputs = tr .select('input');
-				            for (i in inputs) {
-				                if (inputs[i].checked == true) {
-				                    error = 0;
-				                }
-				            }
-				            if (error == 1) {
-				                return false;
-				            }
-				            else {
-				                error = 1;
-				            }
-				        }
-				    }
-				    return true;
-				} ] ]);
-				//]]>
-			</script> 
-         </div> 
-        </div> 
-        <div class="box-collateral box-up-sell"> 
-         <h2>同类课程</h2> 
-         <div id="upsell-product-table"> 
-          <ul class="products-grid"> 
-           <li class="item" style="margin-right: 30px; width: 196px"> 
-            <ul class="productlabels_icons"> 
-             <li class="label "> <p>New</p> </li> 
-            </ul> <a href="http://demo.emthemes.com/gala-electronues/index.php/computer.html" title="Computer" class="product-image"> <img src="http://demo.emthemes.com/gala-electronues/media/catalog/product/cache/1/small_image/196x196/9df78eab33525d08d6e5fb8d27136e95/1/0/10867-imac-2012-03_7.jpg" alt="Computer" /> </a> <h3 class="product-name"> <a href="http://demo.emthemes.com/gala-electronues/index.php/computer.html" title="Computer">Computer</a> </h3> <p class="sku">computer</p> 
-            <div class="price-box"> 
-             <p class="price-from"> <span class="price-label">From:</span> <span class="price">$447.98</span> </p> 
-             <p class="price-to"> <span class="price-label">To:</span> <span class="price">$4,477.92</span> </p> 
-            </div> </li> 
-           <li class="item" style="margin-right: 30px; width: 196px"> 
-            <ul class="productlabels_icons"> 
-             <li class="label "> <p>New</p> </li> 
-             <li class="label "> <p>-10%</p> </li> 
-            </ul> <a href="http://demo.emthemes.com/gala-electronues/index.php/my-computer.html" title="My Computer" class="product-image"> <img src="http://demo.emthemes.com/gala-electronues/media/catalog/product/cache/1/small_image/196x196/9df78eab33525d08d6e5fb8d27136e95/s/e/sell-apple-macbook-pro-mc700ll-a-13-3-inch-laptop.jpg" alt="My Computer" /> </a> <h3 class="product-name"> <a href="http://demo.emthemes.com/gala-electronues/index.php/my-computer.html" title="My Computer">My Computer</a> </h3> <p class="sku">mycomputer</p> 
-            <div class="price-box"> 
-             <p class="price-from"> <span class="price-label">From:</span> <span class="price">$635.97</span> </p> 
-             <p class="price-to"> <span class="price-label">To:</span> <span class="price">$3,786.68</span> </p> 
-            </div> </li> 
-          </ul> 
-         </div> 
-         <script type="text/javascript">
-									decorateTable('upsell-product-table')
-								</script> 
-        </div> 
-        <script type="text/javascript">
-								jQuery(window)
-										.load(
-												function() {
-													initSlider('#upsell-product-table .products-grid');
-												});
-							</script> 
-        <div class="box-collateral box-fc87fbdb47c2ea07b30766cd130bb463"> 
-         <h2>Custom Tab 1</h2> 
-         <div class="widget widget-static-block "> 
-          <div class="block_title"> 
-           <h3> <span>Custom Tab 1</span> </h3> 
-          </div> 
-          <p>A sample of additional collateral tabs that you can insert as a widget in static the backend.</p> 
-         </div> 
-        </div> 
-        <div class="box-collateral box-9f124d93109196f9004ba240fa39fe74"> 
-         <h2>Custom Tab N</h2> 
-         <div class="widget widget-static-block "> 
-          <div class="block_title"> 
-           <h3> <span>Custom Tab 1</span> </h3> 
-          </div> 
-          <p>A sample of additional collateral tabs that you can insert as a widget in static the backend.</p> 
-         </div> 
-        </div> 
-       </div> 
-       <script type="text/javascript">
-							jQuery(window).load(function() {
-								setTimeout(function() {
-									timeout = null;
-									EM.tools.decorateProductCollateralTabs();
-								}, 10);
-							});
-						</script> 
-      </div> 
-      <script type="text/javascript">
-						var lifetime = 3600;
-						var expireAt = Mage.Cookies.expires;
-						if (lifetime > 0) {
-							expireAt = new Date();
-							expireAt.setTime(expireAt.getTime() + lifetime
-									* 1000);
-						}
-						Mage.Cookies.set('external_no_cache', 1, expireAt);
-					</script> 
-    
-     </div> 
-    
-     <div class="clear"></div> 
-    </div> 
-     <header th:substituteby="layout/partials/footer" /> 
-   </div> 
-  </div> 
-  <!-- Google Code for Remarketing Tag --> 
-  <!--
-Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
---> 
-  <script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 1059085115;
-var google_custom_params = window.google_tag_params;
-var google_remarketing_only = true;
-/* ]]> */
-</script> 
-  <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script> 
-  <noscript> 
-   <div style="display:inline;"> 
-    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1059085115/?value=0&amp;guid=ON&amp;script=0" /> 
-   </div> 
-  </noscript> 
-  <script type="text/javascript">
-adroll_adv_id = "HTF7KIWJRBHHXL46WLUDBC";
-adroll_pix_id = "IE5CHDRTR5ABXH2P6QXAVM";
-(function () {
-var oldonload = window.onload;
-window.onload = function(){
-   __adroll_loaded=true;
-   var scr = document.createElement("script");
-   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
-   scr.setAttribute('async', 'true');
-   scr.type = "text/javascript";
-   scr.src = host + "/j/roundtrip.js";
-   ((document.getElementsByTagName('head') || [null])[0] ||
-    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
-   if(oldonload){oldonload()}};
-}());
-</script>   
- </body>
+</body>
 </html>

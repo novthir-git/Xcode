@@ -8,15 +8,4 @@ However, if you would like to utilize your own workspace or IDE configuration, y
 
 > Note: If you are going to fork this project, we recommend basing your work on the `master` branch, and not the develop branch. develop is our ongoing development branch and there are no guarantees of stability on it.
 
-3、添加搜索功能 
-
- 如果启动时时报org.apache.solr.common.SolrException: Error opening new searcher错误，会造成搜索结果为空
-解决如下：
-window 7环境下 下删除以下目录下的所有文件，平重启项目即可使用搜索功能
-C:\Users\{你的计算机名称}\AppData\Local\Temp\{你的计算机名称}\solrhome\
-
-2、在线demo
-
-http://www.broadleafcommerce.com/demo-landing?demoId=demo84dt5t&token=20602
-
 1、免费公开课堂
